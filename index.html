@@ -1,45 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>VITAS APPDEV</title>
+    <title>Carousel</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        .carousel-item {
+            height: 20rem;
+            background: no-repeat center center scroll;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
-
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
+        <ol class="carousel-indicators" id="carousel-indicators">
         </ol>
 
         <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="c1.PNG" alt="Image 1">
-                <div class="carousel-caption">
-                    <h3>VITAS AppDev</h3>
-                </div>
-            </div>
-
-            <div class="carousel-item">
-                <img src="c2.PNG" alt="Image 2">
-                <div class="carousel-caption">
-                    <h3>Evolution of the team according to ChatGPT</h3>
-                </div>
-            </div>
-
-            <div class="carousel-item">
-                <img src="c0.png" alt="Image 3">
-                <div class="carousel-caption">
-                    <h3>Evolution of the team according to ChatGPT</h3>
-                </div>
-            </div>
+        <div class="carousel-inner" id="carousel-inner">
         </div>
 
         <!-- Left and right controls -->
@@ -50,5 +36,37 @@
             <span class="carousel-control-next-icon"></span>
         </a>
     </div>
+
+    <script>
+        window.onload = function() {
+            const totalImages = 5; // Change this number to the total number of images
+
+            for(let i = 0; i <= totalImages; i++) {
+                // Create indicators
+                let indicator = document.createElement("li");
+                indicator.setAttribute("data-target", "#myCarousel");
+                indicator.setAttribute("data-slide-to", i - 1);
+                if(i === 1) indicator.className = "active";
+                document.getElementById('carousel-indicators').appendChild(indicator);
+
+                // Create slides
+                let slide = document.createElement("div");
+                slide.className = "carousel-item" + (i === 1 ? " active" : "");
+                slide.style.backgroundImage = `url('c${i}.png')`;
+
+                let caption = document.createElement("div");
+                caption.className = "carousel-caption";
+                let captionText = document.createElement("h3");
+                captionText.textContent = `Image ${i}`;
+                caption.appendChild(captionText);
+
+                slide.appendChild(caption);
+                document.getElementById('carousel-inner').appendChild(slide);
+            }
+
+            // Refresh carousel to include new slides
+            $('#myCarousel').carousel();
+        };
+    </script>
 </body>
 </html>
