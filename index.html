@@ -38,10 +38,10 @@
     </div>
 
     <script>
-        window.onload = function() {
+        
             const totalImages = 8; // Change this number to the total number of images
 
-            for(let i = 0; i <= totalImages; i++) {
+            for(let i = 1; i <= totalImages; i++) {
                 // Create indicators
                 let indicator = document.createElement("li");
                 indicator.setAttribute("data-target", "#myCarousel");
@@ -72,7 +72,7 @@
             $('#myCarousel').carousel({
                 interval: 2000 // changes the speed to 2 seconds instead of default 5 seconds
             });
-        };
+        
     </script>
 </body>
 </html>
