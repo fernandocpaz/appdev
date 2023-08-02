@@ -65,7 +65,10 @@
             }
 
             // Refresh carousel to include new slides
-            $('#myCarousel').carousel();
+          
+            $('#myCarousel').carousel({
+                interval: 2000 // changes the speed to 2 seconds instead of default 5 seconds
+            });
         };
     </script>
 </body>
