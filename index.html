@@ -41,7 +41,7 @@
         window.onload = function() {
             const totalImages = 7; // Change this number to the total number of images
 
-            for(let i = 0; i <= totalImages; i++) {
+            for(let i = 2; i <= totalImages; i++) {
                 // Create indicators
                 let indicator = document.createElement("li");
                 indicator.setAttribute("data-target", "#myCarousel");
@@ -57,7 +57,7 @@
                 let caption = document.createElement("div");
                 caption.className = "carousel-caption";
                 let captionText = document.createElement("h3");
-                captionText.textContent = `Image ${i}`;
+               
                 caption.appendChild(captionText);
 
                 slide.appendChild(caption);
