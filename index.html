@@ -59,7 +59,10 @@
                 let captionText = document.createElement("h3");
                
                 caption.appendChild(captionText);
+                captionText.textContent = "";
+                caption.appendChild(captionText);
 
+                slide.appendChild(caption);
                 slide.appendChild(caption);
                 document.getElementById('carousel-inner').appendChild(slide);
             }
